@@ -1,0 +1,91 @@
+<html>
+    <head>
+        <title>INST 377 - Lab 4 - Paul Suresh</title>
+        <link rel="stylesheet" href="lab4style_sheet.css">
+    </head>
+
+    <body>
+        <h1 id="intro">INST 377 - Lab 4</h1>
+         <div class="container">
+        <div class="content-box">
+            <!-- Name - Alert box -->
+            <form name="name_form" onsubmit="return alert_validation()">
+                <label>First Name</label>
+                <input type="text" placeholder="first name" id="first_name_alert" required>
+                <input type="submit" value="Alert Me!"> 
+            </form>
+
+            <script type="text/JavaScript">
+                function alert_validation() {
+                    const first_name = document.getElementById('first_name_alert').value;
+                
+                    if(first_name === "") {
+                        alert('Please enter a name');
+                        return false;
+                    } else {
+                        alert('Hi ' + first_name);
+                        return false;  
+                    }
+                }
+            </script>
+        </div>
+
+        <!-- Color Changing Button -->
+        <div class="content-box">
+            <button onclick="change_color()">Change Color</button>
+
+            <script type="text/JavaScript">
+                function change_color() {
+                    if (document.body.style.backgroundColor == 'wheat') {
+                        document.body.style.backgroundColor = 'red';  
+                    } else {
+                        document.body.style.backgroundColor = 'wheat';
+                    }
+                }    
+            </script>
+        </div>
+
+        <!-- Text Validator -->
+        <div class="content-box">
+            <form name="validate_form" onsubmit="return name_validation()">
+                <label>Text Validator</label>
+                <input type="text" placeholder="first name" id="first_name_validate">
+                <input type="submit" value="Validate Text!">
+            </form>
+
+            <script type="text/JavaScript">
+                function name_validation() {
+                    const validation_regex = /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]+/;
+                    const first_name = document.getElementById('first_name_validate').value;
+                    
+                    if (first_name === "") {
+                        alert('Enter a name');
+                        return false;
+                    }
+                    if (validation_regex.test(first_name)) {
+                        alert('How about... NO');
+                        return false;
+                    }
+                    return true;
+                }
+            </script>
+        </div>
+
+
+            <!-- Add Text Button -->
+
+        <div class="content-box">
+            <button onclick="add_text()">Add Text</button>
+
+            <script type="text/JavaScript">
+                function add_text() {
+                    document.getElementById("intro").innerHTML += " - Adding Text"
+                }
+                
+
+            </script>
+        </div>
+    </div>
+    
+    </body>
+</html>
